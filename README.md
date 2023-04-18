@@ -37,3 +37,13 @@ Chris Roeder, April 2023
 
 ### bash script to run it
 - setup_and_run.sh
+
+
+## Algorithm
+
+### combine is based on Chris Knoll's 'magic' work 
+https://forums.ohdsi.org/t/what-is-the-magic-in-cohort-definitions/4535
+
+### contiguous
+https://stackoverflow.com/questions/15783315/combine-consecutive-date-ranges 
+
