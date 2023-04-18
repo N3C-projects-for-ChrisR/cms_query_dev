@@ -32,6 +32,7 @@ insert into raw_claim values ( 7, '2022-03-01', '2022-03-31');
 insert into raw_claim values ( 7, '2022-03-10', '2022-03-31');
 
 -- pids 93, 94, 95, 96 should have a combined visit that covers all of March
+-- these are versions of 3,4,5,6 that have a range following. The ones above don't. 
 -- sort by end-date for consistency
 -- 2 ranges, second starts in middle of first
 insert into raw_claim values (93, '2022-03-01', '2022-03-15');
