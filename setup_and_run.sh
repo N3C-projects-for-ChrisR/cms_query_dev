@@ -18,10 +18,16 @@ cat raw_claim_data.sql | psql cms_query_dev > /dev/null
 # simple CONTIGUOUS test from raw_claim to simple_contigous_visits
 # https://stackoverflow.com/questions/15783315/combine-consecutive-date-ranges 
 if (TRUE); then
+    # special test data here
+    echo "drop table contiguous_test_input" | psql cms_query_dev 2> /dev/null
+    cat contiguous_test_input.ddl | psql cms_query_dev > /dev/null
+    cat contiguous_test_input.sql | psql cms_query_dev > /dev/null
+
+    # run the code
     echo "drop table simple_contiguous" | psql cms_query_dev 2> /dev/null
-##    cat simple_contiguous_visits.ddl | psql cms_query_dev
+    #cat simple_contiguous_visits.ddl | psql cms_query_dev
     cat simple_contiguous.sql | psql cms_query_dev #  should be very simple diff to contiguous.sql, just output table difference
-###    cat test_simple_contiguous.sql | psql cms_query_dev
+    cat test_simple_contiguous.sql | psql cms_query_dev
 fi
 
 # COMBINE from raw_claim to combined_visits table

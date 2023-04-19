@@ -1,5 +1,20 @@
 
+-- pid 91 is a version of pid 1 with overlaps
+-- WORKS
+insert into raw_claim values (91, '2022-01-01', '2022-01-31');
+insert into raw_claim values (91, '2022-01-31', '2022-02-28');
+insert into raw_claim values (91, '2022-02-28', '2022-03-31');
+insert into raw_claim values (91, '2022-03-31', '2022-04-30');
+
+-- try and fake it out with a gap?
+insert into raw_claim values (92, '2022-01-01', '2022-01-31');
+insert into raw_claim values (92, '2022-01-20', '2022-02-15');
+--insert into raw_claim values (92, '2022-02-10', '2022-04-10');
+insert into raw_claim values (92, '2022-03-31', '2022-04-30');
+
 -- pid 1 should have a combined visit 2022-01-01 to 2022-04-30
+-- ...just abutting dates, not overlaps.
+-- DOES NOT WORK
 insert into raw_claim values ( 1, '2022-01-01', '2022-01-31');
 insert into raw_claim values ( 1, '2022-02-01', '2022-02-28');
 insert into raw_claim values ( 1, '2022-03-01', '2022-03-31');
