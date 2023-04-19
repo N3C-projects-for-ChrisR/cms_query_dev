@@ -12,8 +12,8 @@ cat raw_claim_data.sql | psql cms_query_dev > /dev/null
 
 
 # simple CONTIGUOUS test from raw_claim to simple_contigous_visits
-# XXXX where's that SO post?
-if (FALSE); then
+# https://stackoverflow.com/questions/15783315/combine-consecutive-date-ranges 
+if (TRUE); then
     echo "drop table simple_contiguous_visits" | psql cms_query_dev 2> /dev/null
     cat simple_contiguous_visits.ddl | psql cms_query_dev
     cat simple_contiguous.sql | psql cms_query_dev #  should be very simple diff to contiguous.sql, just output table difference
@@ -21,7 +21,7 @@ if (FALSE); then
 fi
 
 # COMBINE from raw_claim to combined_visits table
-if (TRUE); then
+if (FALSE); then
     echo "drop table combined_visits" | psql cms_query_dev 2> /dev/null
     cat combine.sql | psql cms_query_dev
 ###    cat combined_visits_test.sql | psql cms_query_dev

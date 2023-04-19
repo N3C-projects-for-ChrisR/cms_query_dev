@@ -1,6 +1,7 @@
 
 -- create table contiguous_out AS  (see INTO below)
 -- just trying to combine contiguous visit_details here, for now.
+--  https://stackoverflow.com/questions/15783315/combine-consecutive-date-ranges 
 
 WITH simple AS (
     SELECT distinct pid,
