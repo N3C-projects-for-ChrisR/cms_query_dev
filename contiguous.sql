@@ -4,9 +4,7 @@
 --  https://stackoverflow.com/questions/15783315/combine-consecutive-date-ranges 
 
 WITH simple AS (
-    SELECT distinct pid,
-    end_dt,
-    start_dt
+    SELECT distinct pid, end_dt, start_dt
     FROM raw_claim
 )
 

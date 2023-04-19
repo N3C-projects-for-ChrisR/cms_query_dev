@@ -32,7 +32,7 @@ Chris Roeder, April 2023
   - ? ddl
 - contiguous_combined_visits_test.sql tests the output of contiguous.sql
   - ? ddl
-- simple_contiguous_visits_test.sql tests the output of simple_contiguous.sql
+- test_simple_contiguous_visits.sql tests the output of simple_contiguous.sql
   - created with simple_contiguous_visits.ddl
 
 ### bash script to run it
