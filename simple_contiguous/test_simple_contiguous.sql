@@ -3,7 +3,7 @@
 select 92 as case_number;
 select pid, count(*) as ct, count(*) = 1 as good from simple_contiguous  where pid = 92 and start_dt = date('2022-01-01') and end_dt = date('2022-02-15') group by pid;
 select pid, count(*) as ct, count(*) = 1 as good from simple_contiguous  where pid = 92 and start_dt = date('2022-03-31') and end_dt = date('2022-04-30') group by pid;
-select pid, count(*) as ct, count(*) = 1 as good from simple_contiguous  where pid = 92 group by pid ;
+select pid, count(*) as ct, count(*) = 2 as good from simple_contiguous  where pid = 92 group by pid ;
 
 select 91 as case_number;
 select pid, count(*) as ct, count(*) = 1 as good from simple_contiguous  where pid = 91 and start_dt = date('2022-01-01') and end_dt = date('2022-04-30') group by pid;
