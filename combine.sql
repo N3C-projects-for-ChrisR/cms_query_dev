@@ -5,7 +5,7 @@ WITH rows_end_dates_order_prelim AS (
 ),
 rows_end_dates AS (
     SELECT * ,
-      rank() over(partition by pid order by end_dt) as idx
+      row_number() over(partition by pid order by end_dt) as idx
     FROM  rows_end_dates_order_prelim
 ),
 rows_all_dates_prelim AS (
@@ -17,7 +17,7 @@ rows_all_dates_prelim AS (
 ),
 rows_all_dates AS (  -- don't include date_type in the partition!!! TODO
     select pid, date_type, the_date, 
-      rank() over( partition by pid order by the_date, date_type ) as idx
+      row_number() over( partition by pid order by the_date, date_type ) as idx
     FROM rows_all_dates_prelim
 ),
 TAGGED_ROWS as (
