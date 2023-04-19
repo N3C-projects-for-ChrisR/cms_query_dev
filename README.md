@@ -38,6 +38,9 @@ Chris Roeder, April 2023
 ### bash script to run it
 - setup_and_run.sh
 
+## Sub directories
+- combine_piecemeal is for a more detailed look at the code in combine.sql. The steps are in tables, not CTEs.
+- simple_contiguous is for a more detailed look with a dedicated test set into the "contiguous" code.
 
 ## Algorithm
 
