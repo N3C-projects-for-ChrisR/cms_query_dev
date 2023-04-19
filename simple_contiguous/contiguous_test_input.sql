@@ -12,6 +12,12 @@ insert into contiguous_test_input values (92, '2022-01-20', '2022-02-15');
 --insert into contiguous_test_input values (92, '2022-02-10', '2022-04-10');
 insert into contiguous_test_input values (92, '2022-03-31', '2022-04-30');
 
+-- will it cover a 1-day gap with 2s in the query??
+insert into contiguous_test_input values (93, '2022-01-01', '2022-01-30');
+insert into contiguous_test_input values (93, '2022-02-01', '2022-02-27');
+insert into contiguous_test_input values (93, '2022-03-01', '2022-03-31');
+
+
 -- pid 1 should have a combined visit 2022-01-01 to 2022-04-30
 -- ...just abutting dates, not overlaps.
 -- DOES NOT WORK

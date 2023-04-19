@@ -8,19 +8,19 @@ WITH PRELIM as (
     SELECT s1.pid, s1.start_dt, MIN(t1.end_dt) AS end_dt
     FROM contiguous_test_input s1 
     JOIN contiguous_test_input t1  
-      ON (s1.start_dt) <= (t1.end_dt + INTERVAL '-1 day' )
+      ON (s1.start_dt) <= (t1.end_dt + INTERVAL '-2 day' )
         and s1.pid = t1.pid 
       AND NOT EXISTS (SELECT pid, start_dt, end_dt 
                      FROM contiguous_test_input t2 -- simple t2 
                      --WHERE t1.pid = t2.pid and t1.end_dt >= t2.start_dt AND t1.end_dt < t2.end_dt) 
-                     WHERE t2.pid = t1.pid and t2.start_dt <= (t1.end_dt + INTERVAL '1 day') AND t2.end_dt > (t1.end_dt + INTERVAL '1 day')  ) 
+                     WHERE t2.pid = t1.pid and t2.start_dt <= (t1.end_dt + INTERVAL '2 day') AND t2.end_dt > (t1.end_dt + INTERVAL '2 day')  ) 
                      -- there are no rows, t2,  that start before or on the end of this, t1,  row and end after its end..
                      -- and adding to to t1.end so it can be later, and  substracting so it can be earlier
                      -- (might only need the addition on the end)
     WHERE NOT EXISTS (SELECT pid,  start_dt, end_dt 
                      FROM contiguous_test_input s2 -- simple s2 
                      --WHERE s1.pid = s2.pid and s1.start_dt > s2.start_dt AND s1.start_dt <= s2.end_dt) 
-                     WHERE s1.pid = s2.pid and s2.start_dt < (s1.start_dt + INTERVAL '-1 day') AND s2.end_dt >= (s1.start_dt + INTERVAL '-1 day') ) 
+                     WHERE s1.pid = s2.pid and s2.start_dt < (s1.start_dt + INTERVAL '-2 day') AND s2.end_dt >= (s1.start_dt + INTERVAL '-2 day') ) 
                      -- there are no rows that start before the start of the this row and end after or on its start
     GROUP BY s1.start_dt, s1.pid
     ORDER BY s1.start_dt
