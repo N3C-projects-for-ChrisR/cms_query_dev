@@ -2,34 +2,42 @@
 -- don't just check for the right answers, but that there are no others
 -- (the commendted out rows started out as inserts and the where-clauses show the data)
 
+
 -- pid 1 should have a combined visit 2022-01-01 to 2022-04-30
+select 'pid 1' as title;
 select pid, count(*) as ct, count(*) = 1 as good from raw_claim  where pid =  1 and start_dt = date('2022-01-01') and end_dt = date('2022-04-30') group by pid having count(*) != 1;
 select pid, count(*) as ct, count(*) = 1 as good from raw_claim  where pid = 1 group by pid having count(*) !=1;
 
 -- pid 2 should have 2 visits  Jan and March
+select 'pid 2' as title;
 select pid, count(*) as ct, count(*) = 1 as good from raw_claim  where pid =  2 and start_dt = date('2022-01-01') and end_dt = date('2022-01-31') group by pid having count(*) != 1;
 select pid, count(*) as ct, count(*) = 1 as good from raw_claim  where pid =  2 and start_dt = date('2022-03-01') and end_dt = date('2022-03-31') group by pid having count(*) != 1;
 select pid, count(*) as ct, count(*) = 2 as good from raw_claim  where pid =  2  group by pid having count(*) !=2;
 
 -- pids 3 and start_dt = date(4 and start_dt = date(5 and start_dt = date(6 should have a combined visit that covers all of March
+select 'pid 3' as title;
 -- sort by end-date for consistency
 -- 2 ranges and start_dt = date(second starts in middle of first
 select pid, count(*) as ct, count(*) = 1 as good from raw_claim  where pid =  3 and start_dt = date('2022-03-01') and end_dt = date('2022-03-31') group by pid having count(*) != 1;
 select pid, count(*) as ct, count(*) = 2 as good from raw_claim  where pid =  3 group by pid having count(*) !=1;
 
 -- 2 ranges and start_dt = date(second starts before of first and is outside
+select 'pid 4' as title;
 select pid, count(*) as ct, count(*) = 1 as good from raw_claim  where pid =  4 and start_dt = date('2022-03-01') and end_dt = date('2022-03-31') group by pid having count(*) != 1;
 select pid, count(*) as ct, count(*) = 2 as good from raw_claim  where pid =  4 group by pid having count(*) !=1;
 
 -- 2 ranges and start_dt = date(second starts on same day
+select 'pid 5' as title;
 select pid, count(*) as ct, count(*) = 1 as good from raw_claim  where pid =  5 and start_dt = date('2022-03-01') and end_dt = date('2022-03-31') group by pid having count(*) != 1;
 select pid, count(*) as ct, count(*) = 2 as good from raw_claim  where pid =  5 group by pid having count(*) !=1;
 
 -- 2 ranges and start_dt = date(identical
+select 'pid 6' as title;
 select pid, count(*) as ct, count(*) = 1 as good from raw_claim  where pid =  6 and start_dt = date('2022-03-01') and end_dt = date('2022-03-31') group by pid having count(*) != 1;
 select pid, count(*) as ct, count(*) = 2 as good from raw_claim  where pid =  6 group by pid having count(*) !=1;
 
 -- 2 ranges and start_dt = date( end on same day
+select 'pid 7' as title;
 select pid, count(*) as ct, count(*) = 1 as good from raw_claim  where pid =  7 and start_dt = date('2022-03-01') and end_dt = date('2022-03-31') group by pid having count(*) != 1;
 select pid, count(*) as ct, count(*) = 2 as good from raw_claim  where pid =  7 group by pid having count(*) !=1;
 
@@ -42,6 +50,7 @@ select pid, count(*) as ct, count(*) = 2 as good from raw_claim  where pid =  7 
 
 
 -- abc
+select 'pid 8' as title;
 select pid, count(*) as ct, count(*) = 1 as good from raw_claim  where pid =  8 and start_dt = date('2022-04-02') and end_dt = date('2022-04-30') group by pid having count(*) != 1;
 select pid, count(*) as ct, count(*) = 1 as good from raw_claim  where pid =  8 and start_dt = date('2022-03-01') and end_dt = date('2022-03-31') group by pid having count(*) != 1;
 

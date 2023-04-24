@@ -43,7 +43,7 @@ fi
 
 if (TRUE) ;then
     echo "TEST test_ranges.sql"
-    echo "drop table ranges" | psql cms_query_dev
+    echo "drop table ranges" | psql cms_query_dev 2>  /dev/null
     #cat ddl/ranges.ddl | psql cms_query_dev
     cat ranges.sql | psql cms_query_dev
     cat test_ranges.sql | psql cms_query_dev

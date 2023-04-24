@@ -22,6 +22,6 @@ ON s1.start_dt <= t1.end_dt and s1.pid = t1.pid
 WHERE NOT EXISTS(SELECT pid,  start_dt, end_dt 
                  FROM simple s2 
                  WHERE s1.start_dt > s2.start_dt AND s1.start_dt <= s2.end_dt) 
-GROUP BY s1.start_dt, s1.pid
+GROUP BY s1.start_dt, s1.pid, s1.end_dt
 ORDER BY s1.start_dt
 
