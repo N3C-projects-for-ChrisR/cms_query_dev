@@ -8,6 +8,8 @@ with test data.
 
 Despite the names, the files are simplifed versions of claims. They are just date-ranges.
 
+Simpler projects are in sub directories and may be more interesting: combine_piecemeal, and simple_contiguous are described below.
+
 Chris Roeder, April 2023
 
 
